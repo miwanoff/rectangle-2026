@@ -1,5 +1,6 @@
 let timer;
 let time = 1000;
+let finishTime = 10000;
 
 let leftOffset = 0;
 let topOffset = 0;
@@ -9,7 +10,11 @@ const maxOffset = 200;
 let right = false;
 let bottom = false;
 
+let count = 0;
+
 const box = document.getElementById("box");
+
+box.innerHTML = `${time} ${count}`;
 
 function moveBox() {
   box.style.left = leftOffset + "px";
@@ -58,11 +63,25 @@ function show() {
 
 function speed() {
   time -= 90;
-  box.innerHTML = time;
+  count++;
+  box.innerHTML = `${time} ${count}`;
   clearInterval(timer);
   timer = setInterval(moveBox, time);
+}
+
+function finish() {
+    // clearInterval
+    // if (){ //count < 10 = lose
+
+    // }
+    // else{
+
+    // }    
+
 }
 
 box.addEventListener("click", speed);
 
 timer = setInterval(moveBox, time);
+
+setTimeout(finish, finishTime);
