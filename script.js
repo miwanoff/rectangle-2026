@@ -56,6 +56,13 @@ function show() {
   alert(box.innerHTML);
 }
 
-box.addEventListener("click", show);
+function speed() {
+  time -= 90;
+  box.innerHTML = time;
+  clearInterval(timer);
+  timer = setInterval(moveBox, time);
+}
+
+box.addEventListener("click", speed);
 
 timer = setInterval(moveBox, time);
